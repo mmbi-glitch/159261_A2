@@ -66,20 +66,6 @@ public class LoadingScreen extends BasicGameScreen {
         table.add(loadingLabel).expandX().padTop(10).padBottom(20);
         table.row();
         stage.addActor(table);
-        manager.load("audio/music/game_music.ogg", Music.class);
-        manager.load("audio/sounds/coin_collect.wav", Sound.class);
-        manager.load("audio/sounds/jump.mp3", Sound.class);
-        manager.load("audio/sounds/take_hit.wav", Sound.class);
-        manager.load("audio/sounds/stomp_enemy.wav", Sound.class);
-        manager.load("audio/sounds/player_die.wav", Sound.class);
-        manager.load("audio/sounds/player_level_up.wav", Sound.class);
-        manager.load("skins/rainbowui/rainbow-ui.json", Skin.class);
-        manager.load("sprites/background-darker.jpg", Texture.class);
-        manager.load("sprites/background-faded.jpg", Texture.class);
-        manager.load("sprites/table.png", Texture.class);
-        manager.setLoader(TiledMap.class, new TmxMapLoader());
-        manager.load("maps/level1.tmx", TiledMap.class);
-        manager.finishLoading(); // load all assets first
         float randomFloat = new Random().nextFloat();
         randomLoadTime = 3.2f + randomFloat * (5.5f - 3.2f);
     }

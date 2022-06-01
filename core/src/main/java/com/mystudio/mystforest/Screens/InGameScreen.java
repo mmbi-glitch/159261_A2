@@ -243,7 +243,7 @@ public class InGameScreen extends BasicGameScreen {
         // play music
         music = manager.get("audio/music/game_music.ogg", Music.class);
         music.setLooping(true);
-        music.setVolume(0.3f);
+        music.setVolume(0.2f);
         music.play();
         // reset game end messages (not the best way of doing it)
         GameEndScreen.statusMessage = "";

@@ -1,6 +1,12 @@
 package com.mystudio.mystforest;
 import com.badlogic.gdx.assets.AssetManager;
+import com.badlogic.gdx.audio.Music;
+import com.badlogic.gdx.audio.Sound;
+import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.maps.tiled.TiledMap;
+import com.badlogic.gdx.maps.tiled.TmxMapLoader;
+import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.mystudio.mystforest.Screens.*;
 import org.mini2Dx.core.game.ScreenBasedGame;
 import org.mini2Dx.core.graphics.Graphics;
@@ -35,6 +41,21 @@ public class MystForest extends ScreenBasedGame {
     public void initialise() {
         batch = new SpriteBatch();
         manager = new AssetManager();
+        manager.load("audio/music/game_music.ogg", Music.class);
+        manager.load("audio/music/menu_music.ogg", Music.class);
+        manager.load("audio/sounds/coin_collect.wav", Sound.class);
+        manager.load("audio/sounds/jump.mp3", Sound.class);
+        manager.load("audio/sounds/take_hit.wav", Sound.class);
+        manager.load("audio/sounds/stomp_enemy.wav", Sound.class);
+        manager.load("audio/sounds/player_die.wav", Sound.class);
+        manager.load("audio/sounds/player_level_up.wav", Sound.class);
+        manager.load("skins/rainbowui/rainbow-ui.json", Skin.class);
+        manager.load("sprites/background-darker.jpg", Texture.class);
+        manager.load("sprites/background-faded.jpg", Texture.class);
+        manager.load("sprites/table.png", Texture.class);
+        manager.setLoader(TiledMap.class, new TmxMapLoader());
+        manager.load("maps/level1.tmx", TiledMap.class);
+        manager.finishLoading(); // load all assets first
         addScreen(new LoadingScreen(manager));
         addScreen(new InGameScreen(manager));
         addScreen(new GameEndScreen(manager, getScreenManager()));

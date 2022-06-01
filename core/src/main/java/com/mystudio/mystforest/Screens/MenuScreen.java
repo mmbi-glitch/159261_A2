@@ -5,6 +5,7 @@ import com.badlogic.gdx.Input;
 import com.badlogic.gdx.InputMultiplexer;
 import com.badlogic.gdx.InputProcessor;
 import com.badlogic.gdx.assets.AssetManager;
+import com.badlogic.gdx.audio.Music;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
@@ -127,6 +128,9 @@ public class MenuScreen extends BasicGameScreen implements InputProcessor {
     @Override
     public void preTransitionIn(Transition transitionIn) {
         // future edit: need to implement a multiplexer to capture both keyboard and stage inputs
+        manager.get("audio/music/menu_music.ogg", Music.class).setVolume(0.2f);
+        manager.get("audio/music/menu_music.ogg", Music.class).setLooping(true);
+        manager.get("audio/music/menu_music.ogg", Music.class).play();
         InputMultiplexer multiplexer = new InputMultiplexer();
         multiplexer.addProcessor(stage);
         multiplexer.addProcessor(this);
@@ -139,6 +143,7 @@ public class MenuScreen extends BasicGameScreen implements InputProcessor {
     @Override
     public void preTransitionOut(Transition transitionOut) {
         Gdx.input.setInputProcessor(null);
+        manager.get("audio/music/menu_music.ogg", Music.class).stop();
     }
 
     @Override
