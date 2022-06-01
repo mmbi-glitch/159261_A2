@@ -1,0 +1,12 @@
+
+Mushroom_Sprites.png
+format: RGBA8888
+filter: Nearest,Nearest
+repeat: none
+mushroom
+  rotate: false
+  xy: 0, 0
+  size: 224, 16
+  orig: 224, 16
+  offset: 0, 0
+  index: -1

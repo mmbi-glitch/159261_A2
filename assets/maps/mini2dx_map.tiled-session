@@ -1,0 +1,237 @@
+{
+    "Map/SizeTest": {
+        "height": 4300,
+        "width": 2
+    },
+    "activeFile": "level1.tmx",
+    "expandedProjectPaths": [
+    ],
+    "file.lastUsedOpenFilter": "All Files (*)",
+    "fileStates": {
+        "": {
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "C:/Users/mmbil/Documents/Saad Billah/Massey Courses/Y2S1 Courses/159261-GamesProg/Assignments/LitiJavaGame/gurk-maps/level1.tmx": {
+            "scale": 2.05675,
+            "selectedLayer": 6,
+            "viewCenter": {
+                "x": 199.34362465054085,
+                "y": 260.3622219521089
+            }
+        },
+        "C:/Users/mmbil/Documents/Saad Billah/Massey Courses/Y2S1 Courses/159261-GamesProg/Assignments/LitiJavaGame/gurk-maps/tileset.tsx": {
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "C:/Users/mmbil/Documents/Saad Billah/Massey Courses/Y2S1 Courses/159261-GamesProg/Assignments/LitiJavaGame/maps/bg_0.tsx": {
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "C:/Users/mmbil/Documents/Saad Billah/Massey Courses/Y2S1 Courses/159261-GamesProg/Assignments/LitiJavaGame/maps/bg_1.tsx": {
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "C:/Users/mmbil/Documents/Saad Billah/Massey Courses/Y2S1 Courses/159261-GamesProg/Assignments/LitiJavaGame/maps/bg_2.tsx": {
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "C:/Users/mmbil/Documents/Saad Billah/Massey Courses/Y2S1 Courses/159261-GamesProg/Assignments/LitiJavaGame/maps/game_map.tmx": {
+            "scale": 4.7611328125,
+            "selectedLayer": -1,
+            "viewCenter": {
+                "x": 111.10801165032613,
+                "y": 80.3380235467859
+            }
+        },
+        "C:/Users/mmbil/Documents/Saad Billah/Massey Courses/Y2S1 Courses/159261-GamesProg/Assignments/LitiJavaGame/maps/tileset.tsx": {
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "C:/Users/mmbil/Documents/Saad Billah/Massey Courses/Y2S1 Courses/159261-GamesProg/Assignments/LitiJavaGame/src/maps/mainlev_build.tsx": {
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "C:/Users/mmbil/Downloads/litiengine-ldjam44-master/litiengine-ldjam44-master/maps/level0.tmx": {
+            "scale": 3.718005952380952,
+            "selectedLayer": 12,
+            "viewCenter": {
+                "x": 160.03201921152694,
+                "y": 92.11927156293775
+            }
+        },
+        "C:/Users/mmbil/Downloads/litiengine-ldjam44-master/litiengine-ldjam44-master/maps/level0.tmx#Tileset": {
+            "scaleInDock": 2
+        },
+        "C:/Users/mmbil/Downloads/map/Level1.tmx": {
+            "scale": 0.6088028169014085,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 543.68999421631,
+                "y": 725.1937536148062
+            }
+        },
+        "C:/Users/mmbil/Downloads/map/Level1.tmx#props": {
+            "scaleInDock": 1
+        },
+        "C:/Users/mmbil/Downloads/map/Level1.tmx#tileset": {
+            "scaleInDock": 1
+        },
+        "C:/Users/mmbil/Downloads/map/Level1.tmx#tilesets": {
+            "scaleInDock": 1
+        },
+        "C:/Users/mmbil/Downloads/map/Level1.tmx#vehicle-1": {
+            "scaleInDock": 1
+        },
+        "C:/Users/mmbil/Downloads/map/tileset.tsx": {
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "C:/Users/mmbil/Downloads/map/tilesets.tsx": {
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "Coin_Anim_Strip_6.tsx": {
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "bg_0.png": {
+            "scaleInDock": 1
+        },
+        "bg_0.tsx": {
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "bg_1.png": {
+            "scaleInDock": 1
+        },
+        "bg_1.tsx": {
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "bg_2.png": {
+            "scaleInDock": 1
+        },
+        "bg_2.tsx": {
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "coin_anim.png": {
+            "scaleInDock": 1
+        },
+        "coin_anim.tsx": {
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "coin_anim_strip_6.tsx": {
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "door.png": {
+            "scaleInDock": 1
+        },
+        "door.tsx": {
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "level1.tmx": {
+            "scale": 2,
+            "selectedLayer": 6,
+            "viewCenter": {
+                "x": 303.5,
+                "y": 112.25
+            }
+        },
+        "level1.tmx#bg_0": {
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "level1.tmx#coin_anim": {
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "level1.tmx#prop_sprites": {
+            "scaleInDock": 1
+        },
+        "level1.tmx#scenery_sprites": {
+            "scaleInDock": 4
+        },
+        "level1_mario.tmx": {
+            "scale": 1,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 390,
+                "y": 292.5
+            }
+        },
+        "level1_mario.tmx#tileset_gutter": {
+            "scaleInDock": 1
+        },
+        "maps/bg_0.tsx": {
+            "scaleInDock": 1
+        },
+        "maps/bg_1.tsx": {
+            "scaleInDock": 1
+        },
+        "maps/bg_2.tsx": {
+            "scaleInDock": 1
+        },
+        "maps/coin_anim.tsx": {
+            "scaleInDock": 1
+        },
+        "maps/door.tsx": {
+            "scaleInDock": 1
+        },
+        "maps/tileset.tsx": {
+            "scaleInDock": 1
+        },
+        "tileset.png": {
+            "scaleInDock": 1
+        },
+        "tileset.tsx": {
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        }
+    },
+    "frame.defaultDuration": 110,
+    "last.externalTilesetPath": "C:/Users/mmbil/Documents/Saad Billah/Massey Courses/Y2S1 Courses/159261-GamesProg/Assignments/A2_Game/assets/maps",
+    "last.imagePath": "C:/Users/mmbil/Documents/Saad Billah/Massey Courses/Y2S1 Courses/159261-GamesProg/Assignments/A2_Game/assets/maps",
+    "map.fixedSize": true,
+    "map.height": 13,
+    "map.lastUsedFormat": "tmx",
+    "map.layerDataFormat": null,
+    "map.orientation": 1,
+    "map.tileHeight": 16,
+    "map.tileWidth": 16,
+    "map.width": 240,
+    "openFiles": [
+        "level1.tmx"
+    ],
+    "project": "mini2dx_map.tiled-project",
+    "recentFiles": [
+        "level1.tmx",
+        "bg_1.tsx",
+        "bg_2.tsx",
+        "Coin_Anim_Strip_6.tsx",
+        "C:/Users/mmbil/Downloads/map/Level1.tmx",
+        "C:/Users/mmbil/Downloads/map/tileset.tsx",
+        "C:/Users/mmbil/Downloads/map/tilesets.tsx",
+        "coin_anim.tsx",
+        "coin_anim_strip_6.tsx",
+        "door.tsx",
+        "tileset.tsx",
+        "level1_mario.tmx"
+    ],
+    "tileset.embedInMap": true,
+    "tileset.lastUsedFilter": "Tiled tileset files (*.tsx *.xml)",
+    "tileset.lastUsedFormat": "tsx",
+    "tileset.margin": 0,
+    "tileset.spacing": 0,
+    "tileset.tileSize": {
+        "height": 16,
+        "width": 16
+    },
+    "tileset.transparentColor": "#ff00ff",
+    "tileset.type": 0,
+    "tileset.useTransparentColor": false
+}
