@@ -8,6 +8,8 @@ import com.badlogic.gdx.physics.box2d.*;
 import com.mystudio.mystforest.MystForest;
 import com.mystudio.mystforest.Screens.InGameScreen;
 
+// This is an unused class but is useful for getting RID of tiles in the tilemap
+
 public abstract class InteractiveTile {
     protected World world;
     protected TiledMap map;

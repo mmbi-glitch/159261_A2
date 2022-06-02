@@ -13,6 +13,7 @@ import com.mystudio.mystforest.MystForest;
 import com.mystudio.mystforest.Scenes.HUD;
 import com.mystudio.mystforest.Screens.InGameScreen;
 
+// This class deals with the creation of coins
 public class Coin extends Item {
 
     private Array<TextureRegion> frames;
@@ -25,12 +26,18 @@ public class Coin extends Item {
     public Coin(InGameScreen screen, float x, float y) {
         super(screen, x, y, screen.getCoinAtlas().findRegion("coin"));
         manager = screen.getManager();
+
+        // load coin spinning frames
         frames = new Array<TextureRegion>();
         for (int i = 0; i < 5; i++) {
             frames.add(new TextureRegion(getTexture(), i*8, 0, 8,8));
         }
         coinSpin = new Animation<TextureRegion>(0.1f, frames);
+
+        // set bounds
         setBounds(getX(), getY(), 8/ MystForest.PPM, 8/ MystForest.PPM);
+
+        // init relevant attributes
         stateTimer = 0;
         setToDestroy = false;
         destroyed = false;

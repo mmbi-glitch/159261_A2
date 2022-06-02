@@ -1,6 +1,5 @@
 package com.mystudio.mystforest.Sprites;
 
-import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.assets.AssetManager;
 import com.badlogic.gdx.audio.Music;
 import com.badlogic.gdx.audio.Sound;
@@ -18,8 +17,7 @@ import com.mystudio.mystforest.Screens.InGameScreen;
 public class Player extends Sprite {
     public World world;
     public Body b2body;
-    private static final int MAXIMUM_HITS = 3;
-    private int hitsTaken;
+    private AssetManager manager;
 
     // state enum
     public enum PlayerState {
@@ -37,6 +35,7 @@ public class Player extends Sprite {
     private Animation<TextureRegion> playerFalling;
     private Animation<TextureRegion> playerDying;
 
+    // vars for checking if player is facing right or not, is dead, etc...
     private boolean rightDirection;
     private boolean playerIsDead;
     private boolean setToDie;
@@ -45,24 +44,24 @@ public class Player extends Sprite {
     // how much time spent in each state
     private float stateTimer;
 
-    private AssetManager manager;
-
+    // vars for tracking jumps and hits
     public static int MAXIMUM_JUMPS = 2;
     private int jumpsPerformed;
 
+    private static final int MAXIMUM_HITS = 3;
+    private int hitsTaken;
+
     public Player(InGameScreen screen, AssetManager manager) {
+
+        // set sprite texture regions, manager, world
         super(screen.getPlayerAtlas().findRegion("hero"));
         this.manager = manager;
         world = screen.getWorld();
-        currentState = PlayerState.STANDING;
-        previousState = PlayerState.STANDING;
-        stateTimer = 0;
-        rightDirection = true;
 
         // array for holding animation frames
         Array<TextureRegion> frames = new Array<TextureRegion>();
 
-        // loading idle animation frames into the frames array
+        // loading idle animation frames
         for (int i = 0; i < 4; i++) {
             frames.add(new TextureRegion(getTexture(), i*16, 0, 16, 16));
         }
@@ -70,7 +69,7 @@ public class Player extends Sprite {
 
         frames.clear();
 
-        // loading running animation frames into the frames array
+        // loading running animation frames
         for (int i = 4; i < 10; i++) {
             frames.add(new TextureRegion(getTexture(), i*16, 0, 16, 16));
         }
@@ -93,20 +92,32 @@ public class Player extends Sprite {
         playerFalling = new Animation<TextureRegion>(0.1f, frames);
 
         frames.clear();
+
+        // loading death animation frames
         for (int i = 17; i < 25; i++) {
             frames.add(new TextureRegion(getTexture(), i*16, 0,16,16));
         }
         playerDying = new Animation<TextureRegion>(0.1f, frames);
 
+        // defining the player (creating its body/fixture)
         definePlayer();
+
+        // setting the player's bounds (height, width, location)
+        setBounds(16 / MystForest.PPM,16 / MystForest.PPM,16 / MystForest.PPM, 16 / MystForest.PPM);
+
+        // init relevant attributes
         playerIsDead = false;
         setToDie = false;
         hitsTaken = 0;
-        setBounds(16/ MystForest.PPM,16/ MystForest.PPM,16/ MystForest.PPM, 16/ MystForest.PPM);
+        currentState = PlayerState.STANDING;
+        previousState = PlayerState.STANDING;
+        stateTimer = 0;
+        rightDirection = true;
         jumpsPerformed = 0;
     }
 
     public void update(float delta) {
+        // check for death conditions
         if (HUD.isTimeUp()) {
             GameEndScreen.endMessage = "Time Ticked Away";
             setToDie = true;
@@ -116,9 +127,11 @@ public class Player extends Sprite {
             setToDie = true;
             b2body.setLinearVelocity(0,0);
         }
+        // check that player can't go beyond window bounds
         if (b2body.getPosition().y + getHeight()/2 > MystForest.V_HEIGHT/ MystForest.PPM) {
             b2body.setLinearVelocity(0, -10f*delta);
         }
+        // check if player has reached door, if so then do all this in the next physics simulation step
         if (reachedDoor && !playerIsDead) {
             manager.get("audio/music/game_music.ogg", Music.class).stop();
             manager.get("audio/sounds/player_level_up.wav", Sound.class).play();
@@ -127,7 +140,7 @@ public class Player extends Sprite {
             playerIsDead = true;
             stateTimer = 0;
         }
-        // if the player is set to die, do this for the next physics simulation step
+        // check if the player has died, if so do all this in the next physics simulation step
         else if (setToDie && !playerIsDead) {
             HUD.removeAllLives();
             manager.get("audio/music/game_music.ogg", Music.class).stop();
@@ -137,15 +150,18 @@ public class Player extends Sprite {
             playerIsDead = true;
             stateTimer = 0;
         }
+        // else, we continue with moving and animating the player
         else {
-            setPosition(b2body.getPosition().x-getWidth()/2, b2body.getPosition().y - getHeight()/2); // set sprite to position of box2d body
+            // reset sprite's position to position of box2d body
+            setPosition(b2body.getPosition().x-getWidth()/2, b2body.getPosition().y - getHeight()/2);
             setRegion(getFrame(delta));
         }
     }
 
     @Override
     public void draw(Batch batch) {
-        if (!playerIsDead || stateTimer < 0.8f) { // wait for death animation to play, then stop drawing sprite
+        // basically, if the player is dead, we wait for the death animation to play, then stop drawing the sprite
+        if (!playerIsDead || stateTimer < 0.8f) {
             super.draw(batch);
         }
     }
@@ -199,10 +215,10 @@ public class Player extends Sprite {
             return PlayerState.FALLING;
         }
         else if (b2body.getLinearVelocity().x != 0) {
-            jumpsPerformed = 0;
+            jumpsPerformed = 0; // if the player is running, we know they've reached the ground again
             return PlayerState.RUNNING;
         }
-        jumpsPerformed = 0;
+        jumpsPerformed = 0; // if the player is idle, we know they've reached the ground again
         return PlayerState.STANDING;
 
     }

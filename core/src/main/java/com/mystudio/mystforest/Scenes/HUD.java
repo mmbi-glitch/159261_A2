@@ -13,8 +13,8 @@ import com.badlogic.gdx.utils.viewport.FitViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
 import com.mystudio.mystforest.MystForest;
 
-// new class that locks the heads-up display to a fixed viewport;
-// we don't want the HUD to move
+// This is the class that deals with creating the heads-up display
+// Basically, the HUD to a fixed viewport, so that it doesn't move with the gamCam
 
 public class HUD {
     public Stage stage;
@@ -24,7 +24,7 @@ public class HUD {
     private static Integer score;
     private static Integer lives;
 
-    Label livesTabel;
+    Label livesLabel;
     Label scoreLabel;
     Label worldLabel;
     Label timeLabel;
@@ -54,7 +54,7 @@ public class HUD {
         BitmapFont font = generator.generateFont(parameter);
         Label.LabelStyle style = new Label.LabelStyle(font, Color.WHITE);
 
-        livesTabel = new Label("LIVES", style);
+        livesLabel = new Label("LIVES", style);
         scoreLabel = new Label("SCORE", style);
         worldLabel = new Label("LEVEL", style);
         timeLabel = new Label("TIME", style);
@@ -67,7 +67,7 @@ public class HUD {
         timeTrackLabel = new Label(String.format("%03d", worldTimer), style);
 
 
-        table.add(livesTabel).expandX().padTop(5);
+        table.add(livesLabel).expandX().padTop(5);
         table.add(scoreLabel).expandX().padTop(5);
         table.add(worldLabel).expandX().padTop(5);
         table.add(timeLabel).expandX().padTop(5);

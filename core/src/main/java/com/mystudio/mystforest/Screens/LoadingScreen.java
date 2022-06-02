@@ -68,6 +68,7 @@ public class LoadingScreen extends BasicGameScreen {
         stage.addActor(table);
         float randomFloat = new Random().nextFloat();
         randomLoadTime = 3.2f + randomFloat * (5.5f - 3.2f);
+        generator.dispose();
     }
 
     public void update(GameContainer gc, ScreenManager screenManager, float delta) {

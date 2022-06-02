@@ -7,6 +7,8 @@ import com.badlogic.gdx.physics.box2d.*;
 import com.mystudio.mystforest.MystForest;
 import com.mystudio.mystforest.Screens.InGameScreen;
 
+// This is the abstract superclass for initializing static, largely non-interactive tiles,
+// like the ground, ground bounds, and door
 public abstract class NonInteractiveTile {
 
     protected World world;
@@ -25,12 +27,13 @@ public abstract class NonInteractiveTile {
         BodyDef bdef = new BodyDef();
         FixtureDef fdef = new FixtureDef();
         PolygonShape shape = new PolygonShape();
-        bdef.type = BodyDef.BodyType.StaticBody; // body types like static (not affected by forces) and dynamic (affected by forces)
+        bdef.type = BodyDef.BodyType.StaticBody; // static body is not affected by forces
         bdef.position.set((bounds.getX() + bounds.getWidth() / 2f) / MystForest.PPM, (bounds.getY() + bounds.getHeight() / 2f) / MystForest.PPM);
 
         body = world.createBody(bdef);
 
-        shape.setAsBox((bounds.getWidth() / 2f) / MystForest.PPM, (bounds.getHeight() / 2) / MystForest.PPM); // set at center
+        // set at center
+        shape.setAsBox((bounds.getWidth() / 2f) / MystForest.PPM, (bounds.getHeight() / 2) / MystForest.PPM);
         fdef.shape = shape;
         fixture = body.createFixture(fdef);
     }

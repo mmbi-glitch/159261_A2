@@ -174,7 +174,7 @@ public class InGameScreen extends BasicGameScreen {
         // tell renderer to draw only what the camera sees
         mapRenderer.setView(gameCam);
 
-        // go to end game screen if game is over
+        // go to game end screen if game is over
         if (gameOver()) {
             GameEndScreen.statusMessage = "You Lost!";
             screenManager.enterGameScreen(GameEndScreen.ID, new FadeOutTransition(), new FadeInTransition());

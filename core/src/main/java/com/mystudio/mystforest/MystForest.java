@@ -39,7 +39,11 @@ public class MystForest extends ScreenBasedGame {
 
     @Override
     public void initialise() {
+
+        // init sprite batch
         batch = new SpriteBatch();
+
+        // init asset manager and load all assets
         manager = new AssetManager();
         manager.load("audio/music/game_music.ogg", Music.class);
         manager.load("audio/music/menu_music.ogg", Music.class);
@@ -55,12 +59,16 @@ public class MystForest extends ScreenBasedGame {
         manager.load("sprites/table.png", Texture.class);
         manager.setLoader(TiledMap.class, new TmxMapLoader());
         manager.load("maps/level1.tmx", TiledMap.class);
-        manager.finishLoading(); // load all assets first
+        manager.finishLoading();
+
+        // add all the different screens (remember to pass in the manager!)
         addScreen(new LoadingScreen(manager));
         addScreen(new InGameScreen(manager));
         addScreen(new GameEndScreen(manager, getScreenManager()));
         addScreen(new MenuScreen(manager, getScreenManager()));
         addScreen(new AboutScreen(manager, getScreenManager()));
+
+        // finally, enter the loading screen
         enterGameScreen(getInitialScreenId(), new FadeOutTransition(), new FadeInTransition());
     }
 

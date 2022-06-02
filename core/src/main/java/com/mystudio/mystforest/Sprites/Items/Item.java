@@ -5,6 +5,9 @@ import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.physics.box2d.*;
 import com.mystudio.mystforest.Screens.InGameScreen;
 
+// This is the superclass that defines an interactive game item,
+// at the moment, it doesn't do much, needs to be refactored a lot
+
 public abstract class Item extends Sprite {
     protected InGameScreen screen;
     protected World world;
