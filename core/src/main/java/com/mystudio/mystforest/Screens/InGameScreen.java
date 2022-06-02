@@ -103,6 +103,10 @@ public class InGameScreen extends BasicGameScreen {
         // update the viewport initially with the original screen height and width
         gamePort.update(MystForest.V_WIDTH, MystForest.V_HEIGHT);
 
+        // load map and set up map renderer (we only need to load it once)
+        map = manager.get("maps/level1.tmx", TiledMap.class);
+        mapRenderer = new OrthogonalTiledMapRenderer(map, 1 / MystForest.PPM);
+
         // load texture packs
         playerAtlas = new TextureAtlas("sprites/Hero_Sprites.pack");
         mushroomAtlas = new TextureAtlas("sprites/Mushroom_Sprites.pack");
@@ -225,16 +229,18 @@ public class InGameScreen extends BasicGameScreen {
 
     @Override
     public void preTransitionIn(Transition transitionIn) {
-        // load map and set up map renderer
-        map = manager.get("maps/level1.tmx", TiledMap.class);
-        mapRenderer = new OrthogonalTiledMapRenderer(map, 1 / MystForest.PPM);
-        // create hud for time/score/etc info
-        hud = new HUD(MystForest.batch);
         // set cam to be initially centered correctly in our game world
         gameCam.position.set((gamePort.getWorldWidth()) / 2f, gamePort.getWorldHeight() / 2f, 0);
-        // world stuff
+        // update gameCam with correct coordinates after changes
+        gameCam.update();
+        // tell renderer to draw only what the camera sees
+        mapRenderer.setView(gameCam);
+        // create hud for time/score/etc info
+        hud = new HUD(MystForest.batch);
+        // create a new Box2D game world
         world = new World(new Vector2(0, -5), true);
-        b2dr = new Box2DDebugRenderer();
+        // create the box2d debug renderer
+//        b2dr = new Box2DDebugRenderer();
         // set up the Box2D game world
         creator = new Box2DWorldCreator(this);
         // create a new player in the game world
