@@ -65,8 +65,13 @@ Design and build a computer game in Java as a team. You have the freedom to desi
 ### Screenshots
 
 - Menu screen
+
 ![Menu screen](menu-screen.png)
+
 - Play screen
+
 ![Play screen](play-screen.png)
+
 - Game over screen
+
 ![Game over screen](game-over-screen.png)
